@@ -30,7 +30,7 @@ const memberSchema = new mongoose.Schema(
         message: "{VALUE} is not among permitted values",
       },
     },
-    mb_statu: {
+    mb_status: {
       type: String,
       required: false,
       default: "ACTIVE",
