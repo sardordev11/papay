@@ -16,6 +16,7 @@ app.set("view engine", "ejs");
 // BSSR -Backend server side rendering
 
 // 4: Routing code
+//app.use("/resto", router_bssr);
 app.use("/", router);
 
 module.exports = app;
