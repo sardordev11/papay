@@ -10,7 +10,7 @@ mongoose.connect(
     connectionString, 
     {
     useNewUrlParser: true, 
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
 }, 
 (err, goose) => {
     if(err) console.log("ERROR on connection MongoDB");
