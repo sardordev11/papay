@@ -24,6 +24,9 @@ router_bssr.post(
     upload_product.array("product_images", 5),
     productController.addNewProduct
     );
-router_bssr.post("/products/edit/:id", productController.updateChosenProduct);
+router_bssr.post("/products/edit/:id", 
+restaurantController.validateAuthRestaurant,
+productController.updateChosenProduct
+);
 
 module.exports = router_bssr;
