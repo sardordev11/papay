@@ -46,14 +46,14 @@ restaurantController.getLoginMyRestaurant = async (req, res) => {
     console.log("GET: cont/getLoginMyRestaurant");
     res.render("login-page");
   } catch (err) {
-    console.log(`ERROR, cont/getLoginMyRestaurant, ${err.message}`);  
+    console.log(`ERROR, cont/getLoginMyRestaurant`);  
     res.json({state: "fail", message: err.message});
   }
 };
 
 restaurantController.loginProcess = async (req, res) => {
     try {
-      console.log("POST: cont.login");
+      console.log("POST: cont/login");
       const data = req.body,
        member = new Member(),
        result = await member.loginData(data);
@@ -63,17 +63,17 @@ restaurantController.loginProcess = async (req, res) => {
         res.redirect("/resto/products/menu");
       });   
     } catch(err) {
-      console.log(`ERROR, cont/login, ${err.message}`);
+      console.log(`ERROR, cont/login`);
       res.json({ state: "fail", message: err.message});
     }
 };
 
-restaurantController.logoutProcess = async (req, res) => {
+restaurantController.logoutProcess = (req, res, next) => {
   console.log("GET: cont/logout");
   res.send("logout sahifadasiz");
 };
 
-restaurantController.validateAuthRestaurant = async (req, res, next) => {
+restaurantController.validateAuthRestaurant = (req, res, next) => {
   if (req.session?.member?.mb_type === "RESTAURANT") {
     req.member = req.session.member;
     next();
@@ -84,7 +84,7 @@ restaurantController.validateAuthRestaurant = async (req, res, next) => {
   });
 };
 
-restaurantController.checkSessions = async (req, res) => {
+restaurantController.checkSessions = (req, res) => {
   if(req.session?.member) {
     res.json({state: "succeed", data: req.session.member});
   } else {

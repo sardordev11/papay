@@ -76,7 +76,7 @@ const productSchema = new mongoose.Schema({
         default: 0
     },
     restaurant_mb_id: {
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Member",
         required: false
     }    
