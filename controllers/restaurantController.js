@@ -9,7 +9,7 @@ restaurantController.getMyRestaurantdata = async (req, res) => {
 
     res.render("restaurant-menu");
   } catch(err) {
-    console.log(`ERROR, cont/getMyRestaurantdata, ${err.message}`);  
+    console.log(`ERROR, cont/getMyRestaurantdata`);  
     res.json({state: "fail", message: err.message});
   }
 };
